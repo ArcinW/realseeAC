@@ -376,23 +376,13 @@
             } else {
                 if(item.cat==='real') {
                     // 真实数据：两两一行排列
-                    let layoutText = '';
-                    if(item.layout) {
-                        let layoutParts = item.layout.split('-');
-                        let layoutLabels = ['室','厅','厨','卫'];
-                        layoutParts.forEach((v,idx)=>{ if(v!=='0' && idx<layoutLabels.length) layoutText += v+layoutLabels[idx]; });
-                    }
+                    let layoutText = item.layout ? formatLayout(item.layout) : '';
                     propsHTML += '<div class="detail-prop-pair">' + detailPropItem('面积', item.area?item.area+'㎡':'') + detailPropItem('户型', layoutText) + '</div>';
                     propsHTML += '<div class="detail-prop-pair">' + detailPropItem('点位数', item.points||'') + detailPropItem('层数', item.floor||'') + '</div>';
                     propsHTML += '<div class="detail-prop-pair">' + detailPropItem('空间类型', item.spaceType||'') + detailPropItem('采集设备', (item.device&&item.device.startsWith('伽罗华'))?item.device:'伽罗华'+(item.device||'')) + '</div>';
                 } else {
                     // 合成数据：面积+户型、点位数+风格
-                    let layoutText = '';
-                    if(item.layout) {
-                        let layoutParts = item.layout.split('-');
-                        let layoutLabels = ['室','厅','厨','卫'];
-                        layoutParts.forEach((v,idx)=>{ if(v!=='0' && idx<layoutLabels.length) layoutText += v+layoutLabels[idx]; });
-                    }
+                    let layoutText = item.layout ? formatLayout(item.layout) : '';
                     propsHTML += '<div class="detail-prop-pair">' + detailPropItem('面积', item.area?item.area+'㎡':'') + detailPropItem('户型', layoutText) + '</div>';
                     propsHTML += '<div class="detail-prop-pair">' + detailPropItem('点位数', item.points||'') + detailPropItem('风格', item.style||'') + '</div>';
                 }

@@ -26,26 +26,25 @@
 
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
-        <a href="#" class="nav-logo" onclick="switchPage('home'); return false;">
+        <a href="/" class="nav-logo" onclick="switchPage('home'); return false;">
             <img src="https://vr-image-4.realsee-cdn.cn/release/web/images/img_003.7cf64495.jpg" alt="Realsee" class="nav-logo-img">
         </a>
         <div class="nav-links" id="navLinks">
-            <a href="#datahub" class="nav-datahub-link" onclick="switchPage('datahub')">
-                <svg viewBox="0 0 24 24"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/></svg>
-                Data Hub
-            </a>
-            <a href="#data" class="nav-home-link" onclick="switchPage('home'); setTimeout(()=>document.getElementById('data').scrollIntoView({behavior:'smooth'}),150); return false;">数据总览</a>
-            <a href="#tips" class="nav-home-link" onclick="switchPage('home'); setTimeout(()=>document.getElementById('tips').scrollIntoView({behavior:'smooth'}),150); return false;">使用建议</a>
-            <a href="#contact" class="nav-cta" onclick="switchPage('home'); setTimeout(()=>document.getElementById('contact').scrollIntoView({behavior:'smooth'}),150); return false;">联系我们</a>
+            <a href="/" class="nav-icon-link nav-home-link" data-page-link="home" onclick="switchPage('home'); return false;">首页</a>
+            <a href="#datahub" class="nav-icon-link nav-datahub-link" data-page-link="datahub" onclick="switchPage('datahub'); return false;">Data Hub</a>
+            <a href="javascript:void(0)" class="nav-icon-link nav-argus-link" data-page-link="argus" onclick="return false;" aria-disabled="true">Argus大模型</a>
+            <a href="javascript:void(0)" class="nav-icon-link nav-news-link" data-page-link="news" onclick="switchPage('news'); return false;">最新资讯</a>
+            <a href="#contact" class="nav-cta nav-contact-link" data-page-link="contact" onclick="switchPage('home'); setTimeout(()=>document.getElementById('contact').scrollIntoView({behavior:'smooth'}),150); return false;">联系我们</a>
         </div>
         <button class="nav-hamburger" id="navHamburger" onclick="toggleMobileNav()" aria-label="菜单">
             <span></span><span></span><span></span>
         </button>
         <div class="nav-mobile-menu" id="navMobileMenu">
-            <a href="#datahub" onclick="switchPage('datahub'); closeMobileNav()">Data Hub</a>
-            <a href="#data" onclick="switchPage('home'); setTimeout(()=>{document.getElementById('data').scrollIntoView({behavior:'smooth'}); closeMobileNav()},150); return false;">数据总览</a>
-            <a href="#tips" onclick="switchPage('home'); setTimeout(()=>{document.getElementById('tips').scrollIntoView({behavior:'smooth'}); closeMobileNav()},150); return false;">使用建议</a>
-            <a href="#contact" onclick="switchPage('home'); setTimeout(()=>{document.getElementById('contact').scrollIntoView({behavior:'smooth'}); closeMobileNav()},150); return false;">联系我们</a>
+            <a href="/" class="nav-icon-link" onclick="switchPage('home'); closeMobileNav(); return false;">首页</a>
+            <a href="#datahub" class="nav-icon-link" onclick="switchPage('datahub'); closeMobileNav(); return false;">Data Hub</a>
+            <a href="javascript:void(0)" class="nav-icon-link nav-argus-link" onclick="closeMobileNav(); return false;">Argus大模型</a>
+            <a href="javascript:void(0)" class="nav-icon-link" onclick="switchPage('news'); closeMobileNav(); return false;">最新资讯</a>
+            <a href="#contact" class="nav-cta" onclick="switchPage('home'); setTimeout(()=>{document.getElementById('contact').scrollIntoView({behavior:'smooth'}); closeMobileNav()},150); return false;">联系我们</a>
         </div>
     </nav>
 
@@ -417,7 +416,22 @@
             </div>
         </div>
 
+
     </div><!-- end page-datahub -->
+
+    <!-- ==================== NEWS PAGE ==================== -->
+    <div class="page-news" id="pageNews">
+        <section class="news-hero">
+            <div class="news-hero-content">
+                <h1 class="news-title"><span class="hero-title-gradient">最新资讯</span></h1>
+            </div>
+        </section>
+
+        <section class="news-section">
+            <div class="news-featured" id="newsFeatured"></div>
+            <div class="news-timeline" id="newsTimeline"></div>
+        </section>
+    </div><!-- end page-news -->
 
     <!-- Footer -->
     <footer class="footer">
@@ -429,9 +443,11 @@
     </footer>
 
     <script src="data/datasets.js"></script>
+    <script src="data/news.js"></script>
     <script src="scripts/utils.js"></script>
     <script src="scripts/router.js"></script>
     <script src="scripts/datahub.js"></script>
+    <script src="scripts/news.js"></script>
     <script src="scripts/animations.js"></script>
     <script src="scripts/main.js"></script>
 
