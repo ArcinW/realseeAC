@@ -10,7 +10,6 @@ function renderNewsPage() {
         <img src="${latest.image}" alt="${latest.title}" loading="lazy">
       </div>
       <div class="news-feature-body">
-        <time>${latest.date}</time>
         <h2>${latest.title}</h2>
       </div>
     </a>
@@ -18,14 +17,12 @@ function renderNewsPage() {
 
   timeline.innerHTML = rest.map((item) => `
     <a class="news-timeline-item fade-up" href="${item.url}" target="_blank" rel="noopener">
-      <div class="news-date"><time>${item.date}</time></div>
       <div class="news-node" aria-hidden="true"></div>
       <article class="news-card">
         <div class="news-thumb">
           <img src="${item.image}" alt="${item.title}" loading="lazy">
         </div>
         <div class="news-card-body">
-          <time>${item.date}</time>
           <h3>${item.title}</h3>
           <span class="news-card-link">查看详情</span>
         </div>
