@@ -124,8 +124,6 @@
         }
         .nav-icon-link:hover { color: var(--accent-purple-light) !important; }
         .nav-icon-link.nav-current { color: var(--accent-purple-light) !important; opacity: 1; }
-        .nav-argus-link { opacity: 0.72; }
-        .nav-argus-link:hover { opacity: 0.9; }
         .nav-datahub-link {
             display: inline-flex; align-items: center;
             font-weight: 500 !important;
